@@ -1,5 +1,5 @@
-import React, { useReducer, useState } from 'react'
-import { FormControl, InputLabel, Input, FormHelperText, Button, List, ListItem, ListItemText, TextField, ListItemSecondaryAction, IconButton, ListItemIcon, Checkbox, Box, Select, MenuItem, Grid, Card, CardContent } from '@material-ui/core'
+import React, { useState } from 'react'
+import { FormControl, InputLabel, Input, Button, List, ListItem, ListItemText, TextField, ListItemSecondaryAction, IconButton, ListItemIcon, Checkbox, Select, MenuItem, Grid, Card, CardContent } from '@material-ui/core'
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
 import DeleteIcon from '@material-ui/icons/Delete'
@@ -38,14 +38,6 @@ export default function TodoList(this: any) {
   const [totalTags, setTotalTags] = useState([])
   const [totalTagsMap, setTotalTagsMap] = useState(new Map<String, boolean>())
   const [filterTags, setFilterTags] = useState([])
-  const [currFilterTag, setCurrFilterTag] = useState("")
-  const [formInput, setFormInput] = useReducer(
-    (state: any, newState: any) => ({ ...state, ...newState }),
-    {
-      title: "",
-      tags: []
-    }
-  )
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (currTitle !== "" && selectedDate !== null) {
